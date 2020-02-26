@@ -6,17 +6,7 @@ import ninswitch from "../src/switch.jpg";
 import airport from "../src/airports.jpg";
 import podcast from "../src/podcast.jpg";
 import snow from "../src/snow.jpg";
-
-const Newsbar = props => {
-  return (
-    <div className="wrapper">
-      <img src={props.img} alt="" />
-      <div className="headline">
-        <h4>{props.headline}</h4>
-      </div>
-    </div>
-  );
-};
+import Newsbar from "./components/Newsbar";
 
 class App extends React.Component {
   render() {
