@@ -9,7 +9,22 @@ import snow from "../src/snow.jpg";
 import Newsbar from "./components/Newsbar";
 
 class App extends React.Component {
+  state = {
+    news: [
+      { img: tower, headline: "What's it really like living up high?" },
+      { img: ninswitch, headline: "Nintendo Switch Lite - Review" },
+      { img: airport, headline: "The sound disappearing from airports" },
+      {
+        img: podcast,
+        headline: "Podcast: Rocket - Accelerated Geek Conversation"
+      },
+      { img: snow, headline: "Snow & ice forecast for most of the UK" }
+    ]
+  };
   render() {
+    const newsItem = this.state.news.map((news, index) => {
+      return <Newsbar img={news.img} headline={news.headline} key={index} />;
+    });
     return (
       <div className="App">
         <div className="logo">
@@ -19,48 +34,12 @@ class App extends React.Component {
           <h2>Long Reads</h2>
           <h3>See All</h3>
         </div>
-        <div className="main">
-          <Newsbar
-            img={tower}
-            headline="What's it really like living up high?"
-          />
-          <Newsbar img={ninswitch} headline="Nintendo Switch Lite - Review" />
-          <Newsbar
-            img={airport}
-            headline="The sound disappearing from airports"
-          />
-          <Newsbar
-            img={podcast}
-            headline="Podcast: Rocket - Accelerated Geek Conversation"
-          />
-          <Newsbar
-            img={snow}
-            headline="Snow & ice forecast for most of the UK"
-          />
-        </div>
+        <div className="main">{newsItem}</div>
         <div className="header">
           <h2>Newsbeat</h2>
           <h3>See All</h3>
         </div>
-        <div className="main">
-          <Newsbar
-            img={tower}
-            headline="What's it really like living up high?"
-          />
-          <Newsbar img={ninswitch} headline="Nintendo Switch Lite - Review" />
-          <Newsbar
-            img={airport}
-            headline="The sound disappearing from airports"
-          />
-          <Newsbar
-            img={podcast}
-            headline="Podcast: Rocket - Accelerated Geek Conversation"
-          />
-          <Newsbar
-            img={snow}
-            headline="Snow & ice forecast for most of the UK"
-          />
-        </div>
+        <div className="main">{newsItem}</div>
       </div>
     );
   }
